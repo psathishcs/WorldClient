@@ -8,5 +8,5 @@ logging:
     org.world.client.controllers: INFO
 spring:
     application:
-        name: WorldClient
-        instance_id: world-cli-001
+        name: worldclient-v1
+        instance_id: 001
