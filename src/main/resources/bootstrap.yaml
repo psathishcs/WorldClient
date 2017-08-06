@@ -1,0 +1,6 @@
+
+spring:
+  cloud:
+    consul:
+      host: docker.server.com
+      port: 8500

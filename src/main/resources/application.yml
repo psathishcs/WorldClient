@@ -1,0 +1,12 @@
+
+server:
+  port: 9050
+  contextPath: /v1/world/client
+
+logging:
+  level:
+    org.world.client.controllers: INFO
+spring:
+    application:
+        name: WorldClient
+        instance_id: world-cli-001
