@@ -13,7 +13,6 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
  		classpath('se.transmode.gradle:gradle-docker:1.2')
- 		classpath("org.springframework.cloud:spring-cloud-consul-dependencies:1.2.1.RELEASE")
      }
 }
 // Apply the java-library plugin to add support for Java Library
@@ -42,8 +41,13 @@ dependencies {
  	compile("org.springframework.boot:spring-boot-starter-tomcat")
    	compile("org.springframework.boot:spring-boot-starter-actuator")
     compile('org.springframework.cloud:spring-cloud-starter-ribbon')
-   	compile("org.springframework.cloud:spring-cloud-starter-consul-discovery:1.2.1.RELEASE")
+    compile("org.springframework.cloud:spring-cloud-starter-eureka")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR7"
+	}
 }
 
 
