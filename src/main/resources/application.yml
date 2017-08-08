@@ -1,15 +1,15 @@
 
 server:
   port: 9050
-  contextPath: /v1/world/client
+  contextPath: /v2/world/client
 
 logging:
   level:
     org.world.client.controllers: INFO
 spring:
   application:
-    name: worldclient-v1
-    instance_id: 001
+    name: worldclient-v2
+    instance_id: i001
 eureka:
   client:
     serviceUrl:

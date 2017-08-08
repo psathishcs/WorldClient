@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: worldclient-v2
+    instance_id: i001
