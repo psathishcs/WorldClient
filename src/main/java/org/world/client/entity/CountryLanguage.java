@@ -6,25 +6,18 @@ public class CountryLanguage implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
-	private String countryCode;
-	private String language;
+	private CountryLanguagePK countryLanguagePK;
+	
 	private char isOfficial;
 	private float percentage;
 		
-	public String getCountryCode() {
-		return countryCode;
+
+	public CountryLanguagePK getCountryLanguagePK() {
+		return countryLanguagePK;
 	}
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
-
-	public String getLanguage() {
-		return language;
-	}
-
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setCountryLanguagePK(CountryLanguagePK countryLanguagePK) {
+		this.countryLanguagePK = countryLanguagePK;
 	}
 
 	public char getIsOfficial() {
@@ -45,8 +38,7 @@ public class CountryLanguage implements Serializable{
 	
 	@Override
 	public String toString() {
-		StringBuilder str = new StringBuilder().append("CountryCode = ").append(countryCode).append(", ")
-				.append("Language = ").append(language).append(", ")
+		StringBuilder str = new StringBuilder().append("CountryCode = ").append(countryLanguagePK.toString()).append(", ")
 				.append("IsOfficial = ").append(isOfficial).append(", ")
 				.append("Percentage = ").append(percentage).append(".");
 				

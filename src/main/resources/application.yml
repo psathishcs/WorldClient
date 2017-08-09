@@ -6,6 +6,11 @@ server:
 logging:
   level:
     org.world.client.controllers: INFO
+info:
+  app:
+    name: WorldRS Client Application  V2
+    description: Detail of Countrys, Citys, Region, Languages .... etc around the world.
+    version: 2.0.1    
 spring:
   application:
     name: worldclient-v2

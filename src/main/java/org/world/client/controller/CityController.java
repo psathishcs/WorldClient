@@ -1,25 +1,22 @@
 package org.world.client.controller;
 
-import java.net.URI;
+
 import java.net.URISyntaxException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.cloud.netflix.ribbon.RibbonClient;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.world.client.entity.City;
-import org.world.config.RibbonConfiguration;
+import org.world.client.entity.Country;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
-@RibbonClient(name = "worldrs-v2", configuration = RibbonConfiguration.class)
+
 public class CityController {
 	@Autowired
 	private RestTemplate restTemplate;
@@ -43,6 +40,14 @@ public class CityController {
 	@HystrixCommand(fallbackMethod="citysReliable")
 	@RequestMapping(value="/city/country/code/{countryCode}", method = RequestMethod.GET,  produces="application/json")
 	public City[] getByCountyCode(@PathVariable String countryCode) {
+		return restTemplate.getForObject("http://worldrs-v2/v2/world/api/city/country/code/" +   countryCode ,City[].class);
+	}
+	
+	@HystrixCommand(fallbackMethod="citysReliable")
+	@RequestMapping(value="/city/country/name/{name}", method = RequestMethod.GET,  produces="application/json")
+	public City[] getByCountyName(@PathVariable String name) {
+		Country country =  restTemplate.getForObject("http://worldrs-v2/v2/world/api/country/name/" +   name ,Country.class);
+		String countryCode = country.getCode();
 		return restTemplate.getForObject("http://worldrs-v2/v2/world/api/city/country/code/" +   countryCode ,City[].class);
 	}
 	
